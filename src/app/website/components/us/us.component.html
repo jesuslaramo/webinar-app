@@ -1,0 +1,32 @@
+<section class="my-5">
+    <div class="container">
+        <h1 class="mb-3 text-center">Mentores</h1>
+        <div class="row">
+            <div class="col-sm-3 mb-3" *ngFor="let user of usersList">
+                <img src="{{user.avatar}}" class="img-fluid d-block mx-auto" (click)="selectUser(user.id)" data-toggle="modal" data-target="#exampleModal">
+                <h4 class="text-center">{{user.first_name}}&nbsp;{{user.last_name}}</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mentor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="user != undefined">
+                    <img src="{{user.avatar}}" class="img-fluid d-block mx-auto">
+                    <h4 class="text-center">{{user.first_name}}&nbsp;{{user.last_name}}</h4>
+                    <h5 class="text-center">{{user.email}}</h5>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
